@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Customer</title>
+    <!-- Add any styles or links to stylesheets here -->
+    {% include 'headercode.html' %}
+</head>
+
+<body>
+{% include "navbar.html" %}
+
+<!-- Your existing code for navbar and container -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Delete Customer</h1>
+
+            <!-- Form for deleting a customer -->
+            <form action="/delete-customer" method="POST">
+                <div class="mb-3">
+                    <label for="customer_id" class="form-label">Select Customer to Delete</label>
+                    <select class="form-select" id="customer_id" name="customer_id" required>
+                        <!-- Dynamically populate options with customer data from the server -->
+                        {% for customer in customers %}
+                            <option value="{{ customer.CUSTOMER_ID }}">{{ customer.F_NAME }} {{ customer.L_NAME }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-danger">Delete Customer</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'bottomcode.html' %}
+</body>
+</html>

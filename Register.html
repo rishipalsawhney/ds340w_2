@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    {% include 'headercode.html' %}
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="container">
+        <h2>Register</h2>
+
+        <form action="{{ url_for('register') }}" method="post">
+            <!-- First Name -->
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" required>
+
+            <!-- Last Name -->
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" required>
+
+            <!-- Email -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <!-- Phone Number -->
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" id="phone_number" name="phone_number" required>
+
+            <!-- Address -->
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+
+            <!-- Zip Code -->
+            <label for="zip_code">Zip Code:</label>
+            <input type="text" id="zip_code" name="zip_code" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <!-- Your other content goes here -->
+{% include 'bottomcode.html' %}
+</body>
+</html>

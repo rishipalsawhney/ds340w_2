@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    {#    <link rel="stylesheet" href="../static/style.css">#}
+    {% include 'headercode.html' %}
+</head>
+
+<body>
+{% include "navbar.html" %}
+<br>
+<div class="container">
+<div class="btn-group" role="group" aria-label="sort button group">
+  <input type="radio" class="btn-check" name="byTitle" id="byTitle" autocomplete="off">
+  <label class="btn btn-outline-primary" for="byTitle">Sort By Title</label>
+
+  <input type="radio" class="btn-check" name="byPrice" id="byPrice" autocomplete="off">
+  <label class="btn btn-outline-primary" for="byPrice">Sort By Price</label>
+</div>
+<script>
+    document.querySelector('#byTitle').addEventListener('click', function() {
+        window.location.href = '/books?sort=title';
+    });
+    document.querySelector('#byPrice').addEventListener('click', function() {
+        window.location.href = '/books?sort=price';
+    });
+</script>
+
+    <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Price</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for book in books %}
+            <tr>
+                <td><a href="/book/{{ book.ISBN }}">{{ book.TITLE }}</a></td>
+                <th>{{ book.AUTHOR_NAME }}</th>
+                <th>{{ book.GENRE_NAME }}</th>
+                <td>${{ book.PRICE }}</td>
+                {% if user_role != "Customer" %}
+                <td><button class="btn btn-warning" onclick="location.href='/update-book/{{ book.ISBN }}'" type="button">Edit</button></td>
+                <td><button class="btn btn-danger" onclick="location.href='/delete-book/{{ book.ISBN }}'" type="button">Delete</button></td>
+                {% endif %}
+                <td><button class="btn btn-success" onclick="location.href='/add-to-cart/{{ book.ISBN }}'" type="button">Add to Cart</button></td>
+
+
+
+            </tr>
+            {% endfor %}
+
+        </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<button onclick="sortBooks('title')">Sort by Title</button>
+<button onclick="sortBooks('price')">Sort by Price</button>
+<script>
+  function sortBooks(attribute) {
+    var booksList = $('.book'); // Assuming each book has a class 'book'
+
+    booksList.sort(function (a, b) {
+      var aValue = $(a).data(attribute);
+      var bValue = $(b).data(attribute);
+
+      if (attribute === 'price') {
+        // Convert prices to numbers for proper sorting
+        aValue = parseFloat(aValue);
+        bValue = parseFloat(bValue);
+      }
+
+      return aValue.localeCompare(bValue);
+    });
+
+    // Clear and append sorted list
+    $('.books-container').empty().append(booksList);
+  }
+</script>
+
+{#    <div class="books-container">#}
+{#        <!-- Inside your books-container in books.html -->#}
+{#        {% for book in books %}#}
+{#            <div class="book">#}
+{#                <h3>{{ book.name }}</h3>#}
+{#                <p>Author: {{ book.author }}</p>#}
+{#                <p>Price: ${{ book.price.toFixed(2) }}</p>#}
+{#                <button class="details-button" onclick="showBookDetails({{ book | tojson }})">Book Details</button>#}
+{#                <button class="addToCart-button" onclick="addToCart({{ book | tojson }})">Add to Cart</button>#}
+{#            </div>#}
+{#        {% endfor %}#}
+{##}
+{#        <script>#}
+{#            function showBookDetails(book) {#}
+{#                // Redirect to the book_detail_page with the book details#}
+{#                window.location.href = "/book/" + book.name.replace(/\s+/g, '-').toLowerCase();#}
+{#            }#}
+{#        </script>#}
+{##}
+{#    </div>#}
+{#</div>#}
+
+{% include 'bottomcode.html' %}
+</body>
+</html>
+
+
+
+
+

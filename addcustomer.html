@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    {% include 'headercode.html' %}
+    <!-- Add any styles or links to stylesheets here -->
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <!-- Your existing code for navbar and container -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Add Customer</h1>
+                <form action="/add-customer" method="POST">
+                    <div class = "mb-3">
+                       <label for="customer_id" class="form-label">Customer ID</label>
+                        <input type="text" class="form-control" id="customer_id" name="customer_id" placeholder="customer_id" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="first_name" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="last_name" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="zip_code" class="form-label">Zip Code</label>
+                        <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="Zip Code" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Customer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% include 'bottomcode.html' %}
+</body>
+</html>

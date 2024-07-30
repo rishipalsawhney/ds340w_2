@@ -1,0 +1,48 @@
+<!-- contactUs.html -->
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Order</title>
+    {% include 'headercode.html' %}
+    <!-- Add any styles or links to stylesheets here -->
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="container">
+        <h2>Return</h2>
+
+        <form action="/indexCustomer">
+            <!-- Order ID -->
+            <label for="order_id">Order ID:</label>
+            <input type="text" id="order_id" name="order_id" required>
+
+            <!-- Issue -->
+            <label for="issue">Issue:</label>
+            <textarea id="issue" name="issue" rows="1" required></textarea>
+
+            <!-- First Name -->
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" required>
+
+            <!-- Last Name -->
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" required>
+
+            <!-- Customer ID -->
+            <label for="customer_id">Customer ID:</label>
+            <input type="text" id="customer_id" name="customer_id" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Your other content goes here -->
+{% include 'bottomcode.html' %}
+</body>
+</html>

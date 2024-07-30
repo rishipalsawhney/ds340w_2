@@ -1,0 +1,30 @@
+<!-- return_processed.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Processed</title>
+    <!-- Add any styles or links to stylesheets here -->
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="container">
+        {% if result == 'success' %}
+            <h2>Your return has been processed</h2>
+            <p>Please choose your preferred option:</p>
+            <a href="{{ url_for('refund_page') }}"><button>Refund</button></a>
+            <a href="{{ url_for('replacement_page') }}"><button>Replacement</button></a>
+        {% elif result == 'error' %}
+            <h2>Error processing return</h2>
+            <p>{{ error_message }}</p>
+        {% endif %}
+    </div>
+
+    <!-- Your other content goes here -->
+
+</body>
+</html>

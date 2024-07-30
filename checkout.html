@@ -1,0 +1,56 @@
+<!-- checkout.html -->
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    {% include 'headercode.html' %}
+</head>
+<body>
+<div class="container">
+    <h2>Checkout</h2>
+    <form action="/checkout" method="post">
+        <div class="mb-3">
+            <label for="nameLabel" class="form-label">Name</label>
+            <input type="text" class="form-control" id="nameLabel" name="nameLabel">
+        </div>
+        <div class = "mb-3">
+                       <label for="customer_id" class="form-label">Customer ID</label>
+                        <input type="text" class="form-control" id="customer_id" name="customer_id" placeholder="customer_id" required>
+        </div>
+        <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number" required>
+        </div>
+        <div class="mb-3">
+            <label for="cardNumberLabel" class="form-label">CardNumber</label>
+            <input type="text" class="form-control" id="cardNumberLabel" name="cardNumberLabel">
+        </div>
+        <div class="mb-3">
+            <label for="cvvLabel" class="form-label">CVV</label>
+            <input type="text" class="form-control" id="cvvLabel" name="cvvLabel">
+        </div>
+        <div class="mb-3">
+            <label for="zipCodeLabel" class="form-label">ZipCode</label>
+            <input type="text" class="form-control" id="zipCodeLabel" name="zipCodeLabel">
+        </div>
+        <div class="mb-3">
+            <label for="expiryDateLabel" class="form-label">ExpirationDate</label>
+            <input type="text" class="form-control" id="expiryDateLabel" name="expiryDateLabel">
+        </div>
+        <div class="mb-3">
+            <label for="addressLabel" class="form-label">BillingAddress</label>
+            <input type="text" class="form-control" id="addressLabel" name="addressLabel">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% include 'bottomcode.html' %}
+</body>
+</html>

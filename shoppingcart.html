@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    {% include 'headercode.html' %}
+</head>
+<body>
+{#    <header>#}
+{#        <h1>Your Shopping Cart</h1>#}
+{#    </header>#}
+
+{% include "navbar.html" %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-8">
+            {% if shopping_cart_items %}
+                <h2>Items in Your Cart</h2>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                    </tr>
+                    {% for item in shopping_cart_items %}
+                        <tr>
+                            <td>{{ item.TITLE }}</td>
+                            <td>${{ item.PRICE }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>Your shopping cart is empty.</p>
+            {% endif %}
+        </div>
+        <div class="col d-flex align-content-center">
+            <div class="cart-total">
+                <h2>Total</h2>
+                <p>${{ total_price }}</p>
+                <a href="{{ url_for('checkout') }}">Proceed to Checkout</a>
+            </div>
+            <script>
+                {% for item in shopping_cart_items %}
+                    <p>{{ item.product_name }} - {{ item.price }}</p>
+                {% endfor %}
+            </script>
+        </div>
+    </div>
+
+    {#    <div class="container">#}
+    {#        <div class="cart-container">#}
+    {#            {% if shopping_cart %}#}
+    {#                <!-- shoppingcart.html -->#}
+    {#                <h2>Items in Your Cart</h2>#}
+    {#                <ul>#}
+    {#                    {% for item in session['cart'].get_cart_items() %}#}
+    {#                        <li>{{ item['TITLE'] }} - ${{ item['PRICE'] }}</li>#}
+    {#                    {% endfor %}#}
+    {#                </ul>#}
+    {##}
+    {#                <p>Total: ${{ total_price.toFixed(2) }}</p>#}
+    {#                <button onclick="checkout()">Proceed to Checkout</button>#}
+    {#            {% else %}#}
+    {#                <p>Your shopping cart is empty.</p>#}
+    {#            {% endif %}#}
+    {#        </div>#}
+    {#    </div>#}
+    {##}
+    {#    <!-- Your existing scripts -->#}
+    {#    <script>#}
+    {#        var MenuItems = document.getElementById("MenuItems");#}
+    {##}
+    {#        MenuItems.style.maxHeight = "0px";#}
+    {##}
+    {#        function menutoggle() {#}
+    {#            if (MenuItems.style.maxHeight == "0px") {#}
+    {#                MenuItems.style.maxHeight = "200px";#}
+    {#            } else {#}
+    {#                MenuItems.style.maxHeight = "0px";#}
+    {#            }#}
+    {#        }#}
+    {##}
+    {#        function checkout() {#}
+    {#            // Add logic to redirect to the checkout page or perform checkout actions#}
+    {#            window.location.href = '/checkout';#}
+    {#            alert('Redirecting to checkout page...');#}
+    {#        }#}
+    {#    </script>#}
+</div>
+{% include 'bottomcode.html' %}
+</body>
+</html>
+
+
+
+

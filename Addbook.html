@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    {% include 'headercode.html' %}
+    <!-- Add any styles or links to stylesheets here -->
+</head>
+<body>
+
+
+    {% include "navbar.html" %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Add Book</h1>
+                <form action="/add-book" method="POST">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Book Title</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Book Title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="author_id" class="form-label">Author ID</label>
+                        <input type="text" class="form-control" id="author_ID" name="author_id" placeholder="Author">
+                    </div>
+                    <div class="mb-3">
+                        <label for="genre_name" class="form-label">Genre</label>
+                        <input type="text" class="form-control" id="genre_name" name="genre_name" placeholder="Genre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="publication_date" class="form-label">Publication Date</label>
+                        <input type="date" class="form-control" id="publication_date" name="publication_date">
+                    </div>
+                    <div class="mb-3">
+                        <label for="isbn" class="form-label">ISBN</label>
+                        <input type="text" class="form-control" id="isbn" name="isbn" placeholder="ISBN">
+                    </div>
+                    <div class="mb-3">
+                        <label for="availability" class="form-label">Availability</label>
+                        <input type="checkbox" class="form-check-input" id="availability" name="availability">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" step="0.01" class="form-control" id="price" name="price" placeholder="Price">
+                    </div>
+                    <!-- Add other fields as needed -->
+
+                    <button type="submit" class="btn btn-primary">Add Book</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% include 'bottomcode.html' %}
+  </body>
+</html>

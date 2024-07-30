@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    {% include 'headercode.html' %}
+    {#    <link rel="stylesheet" href="../static/style.css">#}
+</head>
+<body>
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Navbar</title>#}
+{#    <!-- Add any styles or links to stylesheets here -->#}
+{#</head>#}
+{#<body>#}
+{##}
+{#    <div class="container">#}
+{#        <div class="navbar">#}
+{#            <div class="logo">#}
+{#                <a href="{{ url_for('index') }}"><img src="images/logo.png" width="125px"></a>#}
+{#            </div>#}
+{#            <nav>#}
+{#                <ul id="MenuItems">#}
+{#                    <li><a href="{{ url_for('index') }}">Home</a></li>#}
+{#                    <li><a href="{{ url_for('books') }}">Books</a></li>#}
+{#                    <li><a href="{{ url_for('recommend_us') }}">Recommend Us</a></li>#}
+{#                    <li><a href="{{ url_for('contact_us') }}">Return Order</a></li>#}
+{#                    <li><a href="{{ url_for('accounts') }}">Account</a></li>#}
+{#                </ul>#}
+{#            </nav>#}
+{#            <a href="{{ url_for('cart') }}"><img src="images/cart.png" width="30px" height="30px"></a>#}
+{#            <img src="images/menu.png" onclick="menutoggle()" class="menu-icon">#}
+{#        </div>#}
+{#    </div>#}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">The Quill and Ink</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/books">Books</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/recommend-us">Recommend Us</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/contact-us">Return Order</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/accounts">Account</a>
+      </ul>
+      <div class="d-flex">
+        <a class="btn btn-outline-success" role="button" href="/shoppingcart">Cart</a>
+      </div>
+    </div>
+  </div>
+</nav>
+    <h1>Welcome to My Bookstore</h1>
+</div>
+
+
+{% include 'bottomcode.html' %}
+</body>
+</html>

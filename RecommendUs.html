@@ -1,0 +1,50 @@
+<!-- RecommendUs.html -->
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommend Us</title>
+    {% include 'headercode.html' %}
+    <!-- Add any styles or links to stylesheets here -->
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="container">
+        <h2>Recommend a Book</h2>
+
+        <form action="{{ url_for('submit_recommendation') }}" method="post">
+            <label for="isbn">Book ISBN:</label>
+            <input type="text" id="isbn" name="isbn" required>
+            <!-- Book Title -->
+            <label for="bookTitle">Book Title:</label>
+            <input type="text" id="bookTitle" name="bookTitle" required>
+
+            <!-- Author -->
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="Author" required>
+
+            <!-- Recommendation -->
+            <label for="recommendation">Your Recommendation:</label>
+            <textarea id="recommendation" name="Recommendation" rows="1" required></textarea>
+
+
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Recommendation</button>
+
+        </form>
+
+        {% if recommendation_submitted %}
+            <p>Your recommendation has been noted. Keep an eye on your email for more recommendations.</p>
+        {% endif %}
+    </div>
+
+    <!-- Your other content goes here -->
+{% include 'bottomcode.html' %}
+</body>
+</html>
+

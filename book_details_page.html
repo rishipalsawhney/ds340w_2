@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    {% include 'headercode.html' %}
+</head>
+<body>
+{% include 'navbar.html' %}
+{% if book %}
+    <div class="container">
+        <h1>Book Title: {{ book.TITLE }}</h1>
+        <img src= {{ book.cover_image }} alt="Book_Cover"> <!-- Replace 'book_cover.jpg' with the actual book cover image filename -->
+        <p>Author: {{ book.AUTHOR_NAME }}</p>
+        <p>ISBN: {{ book.ISBN }}</p>
+        <p>Genre: {{ book.GENRE_NAME }}</p>
+        <p>Language: English</p>
+        <p>Price: ${{ book.PRICE }}</p>
+        <td><button class="btn btn-success" onclick="location.href='/add-to-cart/{{ book.ISBN }}'" type="button">Add to Cart</button></td>
+<!--        <button onclick="addToCart()">Add to Cart</button>-->
+        <p>Delivery in 3-5 business days</p>
+    </div>
+{% endif %}
+    <script>
+        function addToCart() {
+            window.location.href = "/shoppingcart/{{ book.ISBN }}";
+        }
+    </script>
+
+    {% include 'bottomcode.html' %}
+</body>
+</html>
+

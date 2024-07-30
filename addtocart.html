@@ -1,0 +1,27 @@
+<!-- templates/add_to_cart_success.html -->
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Added to Cart</title>
+    {% include 'headercode.html' %}
+</head>
+
+<body>
+    {% include "navbar.html" %}
+
+    <div class="container">
+        <h2>Book Added to Cart</h2>
+        <p>{{ book['TITLE'] }} has been added to your shopping cart.</p>
+        <p>Author: {{ book['AUTHOR'] }}</p>
+        <p>Price: ${{ book['PRICE'] }}</p>
+        <a href="/shoppingcart">Shopping Cart</a>
+    </div>
+
+    {% include 'bottomcode.html' %}
+</body>
+
+</html>

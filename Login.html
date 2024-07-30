@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshop Login</title>
+    {% include 'headercode.html' %}
+    <!-- Add your custom styles or link to a library for better styling -->
+    <style>
+        body {
+            background-image: url('book_background.jpg'); /* Replace with your book image */
+            background-size: cover;
+            background-position: center;
+            color: #fff; /* Set text color to be visible on the background */
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        #book-icon {
+            width: 100px; /* Adjust the size as needed */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="book-icon" src="book_icon.png" alt="Book Icon">
+        <h2>Login</h2>
+        <form action="/" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="register.html">Register here</a>.</p>
+    </div>
+{% include 'bottomcode.html' %}
+</body>
+</html>

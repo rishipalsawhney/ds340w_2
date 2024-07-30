@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update User</title>
+    {% include 'headercode.html' %}
+</head>
+<body>
+
+{%include 'navbar.html'%}!
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Update User</h1>
+
+                <h2>Current User Information</h2>
+                <p>First Name: {{ CUSTOMERS.F_NAME }}</p>
+                <p>Last Name: {{ CUSTOMERS.L_NAME }}</p>
+                <p>Email: {{ CUSTOMERS.EMAIL }}</p>
+                <p>Phone: {{ CUSTOMERS.PHONE_NO }}</p>
+                <p>Address: {{ CUSTOMERS.ADDRESS }}</p>
+                <p>Zip Code: {{ CUSTOMERS.ZIP_CODE }}</p>
+
+
+                <!-- Form for updating user information -->
+                <form action="/update-user/{{ user.user_id }}" method="POST">
+                    <div class="mb-3">
+                        <label for="first_name" class="form-label">New First Name</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="New First Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="last_name" class="form-label">New Last Name</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="New Last Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">New Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="New Email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">New Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="New Phone Number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">New Address</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="New Address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="zip_code" class="form-label">New Zip Code</label>
+                        <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="New Zip Code">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% include 'bottomcode.html' %}
+</body>
+</html>
